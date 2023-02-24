@@ -1,0 +1,72 @@
+{{ 'novedades.css'  | asset_url | stylesheet_tag }}
+<br><br><br>
+<div class="container credijamar-section">
+  <div class="row justify-content-between">
+    <div class="col-md-8 d-flex justify-content-md-start justify-content-center align-items-center position-relative container-credijamar--bg" style="background-image: url({{section.settings.bg-credijamar | image_url: width: '584', format: 'pjpg' }});" alt="{{ section.settings.bg-credijamar.alt }}">
+      <center class="credijamar-card rounded bg-light-gris-jamar p-4 d-flex justify-content-center">
+        <h3 class="text-gris-jamar">Aplica a tu crédito con</h3>
+        <img class="w-50 me-auto ms-auto" src="https://cdn.shopify.com/s/files/1/0516/5478/7271/files/credijamar_8bf63441-2b75-4653-b115-bf1971d721e6.svg?v=1674141168">
+        <p class="text-gris-jamar mt-4">Cupos altos. Cuota fija. 100% digital.</p>
+        <a href="https://tarjetizacion.jamar.com.pa/form-one" class="me-auto ms-auto">
+            <button type="button" class="btn rounded-pill border border-azul-jamar text-azul-jamar fw-bold">
+              <img src="https://cdn.shopify.com/s/files/1/0516/5478/7271/files/Flag-credijamar.svg" alt="Icono Credijamar">
+              ¡Aplica ya!
+            </button>
+        </a>
+      </center>
+    </div>
+    <div class="col-md-4 d-flex align-items-center mt-md-0 contenedor-features">
+      <div class="row">
+        <div class="col-md-6 col-6 mt-2 mb-3">
+          <div class="feature-credijamar d-flex flex-column align-items-center text-center">
+            <img width="90" src="https://cdn.shopify.com/s/files/1/0516/5478/7271/files/icon-credijamar-1.png" loading="lazy">
+            <p class="pt-2 mb-2">Cupos altos con cuotas bajas</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-6 mt-2 mb-3">
+          <div class="feature-credijamar d-flex flex-column align-items-center text-center">
+            <img width="90" src="https://cdn.shopify.com/s/files/1/0516/5478/7271/files/icon-credijamar-2.png" loading="lazy">
+            <p class="pt-2 mb-2">Cuota fija de principio a fin</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-6 mt-2 mb-3">
+          <div class="feature-credijamar d-flex flex-column align-items-center text-center">
+            <img width="90" src="https://cdn.shopify.com/s/files/1/0516/5478/7271/files/icon-credijamar-3.png" loading="lazy">
+            <p class="pt-2 mb-2">Sin cuota de manejo</p>
+          </div>
+        </div>  
+        <div class="col-md-6 col-6 mt-2 mb-3">
+          <div class="feature-credijamar d-flex flex-column align-items-center text-center">
+            <img width="90" src="https://cdn.shopify.com/s/files/1/0516/5478/7271/files/icon-credijamar-4.png" loading="lazy">
+            <p class="pt-2 mb-2">Aprobación inmediata</p>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+"name": "Seccion Credijamar",
+"settings": [
+  {
+    "type":"image_picker",
+    "id": "bg-credijamar",
+    "label":"Fondo credijamar",
+    "info": "584 x 394"
+  }
+],
+"blocks":[
+  {
+    "name":"Imagen",
+    "type":"imagenes",
+    "settings":[]
+  }
+],
+"presets":[{
+    "name":"Seccion Credijamar",
+    "category":"Homepage"
+}]
+}
+{% endschema %}

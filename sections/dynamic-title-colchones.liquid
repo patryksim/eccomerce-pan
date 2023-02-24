@@ -1,0 +1,75 @@
+{% comment %} {% if page.template_suffix != "novedades" %}
+  {% render 'custom-separator' %}
+{% endif %} {% endcomment %}
+
+{% assign title_tag =  section.settings.title_tag  %}
+
+
+    <section class="container {% if page.template_suffix == "novedades" %} mt-md-5 {% endif %}">{% comment %} Contenedor de la sección del feed de productos ###LISTO {% endcomment %}
+        <div class="row flex-column align-items-center">
+          {% if section.settings.icono_grid %}
+            {{ section.settings.icono_grid | image_url : width: auto | image_tag: alt: 'My favicon', srcset: nil, class: 'img-icon-promo' }}
+          {% endif %}
+            <{{title_tag}} class="text-center lato-titulos mb-0 mt-3 col-md-10 col-10">{{ section.settings.main_title }} </{{title_tag}}>
+            {% if section.settings.subtitle != "" %}
+                <p class="lato-parrafos parrafo-descanso text-center col-10">{{ section.settings.subtitle }}</p>
+            {% endif %}
+            {% if section.settings.subtitle == "" %}
+                <p class="lato-parrafos parrafo-descanso text-center col-10"></p>
+            {% endif %}
+        </div>
+    </section>{% comment %} Contenedor de la sección  del feed de productos {% endcomment %}
+
+
+
+    {% schema %}
+    {
+  "name": "Promotional title",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Titulo Principal",
+      "default": "Doler ipsum dolor sit amet consectetur adipiscing"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitulo",
+      "default": "Doler ipsum dolor sit amet consectetur adipiscing"
+    },
+    {
+      "type": "image_picker",
+      "id": "icono_grid",
+      "label": "Icono"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Etiqueta para el titulo",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        }
+      ],
+      "default": "h2"
+    }
+    ],
+    "presets": [
+    {
+    "name": "Titulo Promo",
+    "category": "Promo Colchones"
+    }
+    ]
+    }
+
+    {% endschema %}

@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3 mb-4">
+        <a href="/" class="me-1 text-end text-gris-jamar">Inicio</a> / <a href="/pages/catalogo-digital" class="ms-1 text-end text-rojo-jamar fw-bold">Catalogo Digital</a>
+    </div>
+    <div class="col-12 col-md-5">
+      <h1 class="fs-2 fw-bold">Catálogos Digitales</h1>
+      <div class="bg-azul-jamar mt-3 mb-3" style="height: 3px"></div>
+      <p class="description-catalogo">Entérate de las novedades que inspiran tu hogar.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row">
+      {% for block in section.blocks %}
+        <div class="col-12 col-sm-6 col-md-4 rounded mb-4">
+          <a href="{{ block.settings.page.url }}" class="text-decoration-none">
+              <div class="card-catalogo">
+                  <img class="img-fluid img-cover-catalogo" src="{{ block.settings.image | img_url:'master'}}" loading="lazy" class="" alt="..." />
+                  <div class="bg-light-gris-jamar text-gris-jamar w-100 text-center pb-1">
+                    <p class="mb-3"> Catálogo </p>
+                    <p class="mb-0"><b>{{  block.settings.text }}</b></p>
+                  </div>
+                  <button class="cta-share bg-black align-items-center text-decoration-none text-white w-100 pt-2 pb-2"> VER CÁTALOGO </button>
+              </div>
+          </a>
+          </div>
+      {% endfor %}
+	</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Catalogo card",
+    "settings": [
+      
+    ],
+    "blocks": [
+     {
+       "name": "Trajeta",
+       "type": "card",
+       "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Imagen"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Título"
+          },
+          {
+            "type": "page",
+            "id": "page",
+            "label": "Catálogo"
+          }
+       ]
+     }
+   ],
+  	"presets":[{
+		"name":"Catalogo card",
+		"category":"Catalogo card"
+	}]
+  }
+{% endschema %}
+
+<style>
+    .cta-share {
+        border-radius: 0px 0px 15px 15px;
+    }
+    .img-cover-catalogo {
+        border-radius: 15px 15px 0px 0px;
+    }
+</style>
+
+{% javascript %}
+{% endjavascript %}

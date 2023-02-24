@@ -1,0 +1,62 @@
+<br><br><br>
+<div class="container section-banners-promocionales">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center text-gris-jamar">{{ section.settings.main_title }}</h2>
+      <p class="text-gris-jamar mt-2 text-center">{{ section.settings.main_description }}</p>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-center">
+   {% for block in section.blocks %}
+      <div class="col-md-3">
+        <a href="{{ block.settings.enlace }}">
+          <img class="mb-4"  src="{{ block.settings.coltitle | img_url:'master' }}" loading="lazy">
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tarjetas promocionales",
+  "settings": [
+      {
+        "type": "text",
+        "id": "main_title",
+        "label": "Titulo Principal",
+        "default": "Titulo"
+      },
+      {
+        "type": "text",
+        "id": "main_description",
+        "label": "Descripción",
+        "default": "Texto"
+      }
+    ],
+    "blocks": [
+      {
+        "name" : "Seleccionar",
+        "type": "imagenes",
+        "settings": [
+            {
+              "type": "image_picker",
+              "id": "coltitle",
+              "label": "Imagen 580 x 693"
+            },
+            {
+              "type": "url",
+              "id": "enlace",
+              "label": "Enlace de coleccion"
+            }
+          ]       
+      }
+    ],
+    "presets": [
+      {
+        "name": "Tarjetas promocionales"
+      }
+    ]
+    }
+{% endschema %}

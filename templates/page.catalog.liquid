@@ -1,0 +1,15 @@
+<style>
+        .contenedor {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+    </style>
+
+{{page.content}}
+
+{% if page_title == "Colección Elemental" %}
+{% section 'elemental' %}
+{% endif %}

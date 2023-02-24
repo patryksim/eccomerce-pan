@@ -1,0 +1,61 @@
+{% if section.settings.faq_enabled %}
+<section>
+  <ul class="faq"> 
+    {% for block in section.blocks %}
+    {% capture blockId %}{{ block.id }}{% endcapture %}
+    <li>
+      <div class="question" id="heading-{{ forloop.index }}">
+        <h5>{{ block.settings.question_title }}</h5>  
+      </div>
+      <div class="answer">
+        <p>{{ block.settings.question_desc }}</p>
+      </div>
+    </li>
+    {% endfor %}
+   </ul>
+</section>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Faq Template",
+    "settings": [
+      {
+         "type":"checkbox",
+         "id":"faq_enabled",
+         "default":true,
+         "label":"Enabled"
+      },
+      {
+          "type": "text",
+          "id": "heading",
+          "default": "Category",
+          "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question_title",
+            "label": "Question Title" 
+          },
+          {
+            "type": "richtext",
+            "id": "question_desc",
+            "label": "Question Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
